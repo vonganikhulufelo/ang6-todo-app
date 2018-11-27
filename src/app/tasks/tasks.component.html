@@ -1,0 +1,13 @@
+<div class="pad container">
+  <div class="row">
+  <div *ngFor="let task of tasks.tasks" class="col-4 card" style="width: 18rem;">
+      <div class="card-body">
+        <h5 class="card-title"><strong>Title:</strong> {{task.title}}</h5>
+        <h6 class="card-subtitle mb-2 text-muted"><strong>Due Date:</strong> {{task.duedate}}</h6>
+        <p class="card-text"><strong>Description:</strong> {{task.description}}</p>
+        <a routerLink="/taskedit/{{task.id}}" class="card-link">Edit</a>
+        <a href="#" class="card-link">Delete</a>
+      </div>
+    </div>
+    </div>
+    </div>

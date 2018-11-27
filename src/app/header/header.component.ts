@@ -1,21 +1,15 @@
-import { Component } from '@angular/core';
-import { Http, Response, Headers } from '@angular/http';
+import { Component, OnInit } from '@angular/core';
 import { Router  } from '@angular/router';
 
-
 @Component({
-  selector: 'app-root',
-  templateUrl: './app.component.html',
-  styleUrls: ['./app.component.scss']
+  selector: 'app-header',
+  templateUrl: './header.component.html',
+  styleUrls: ['./header.component.scss']
 })
-export class AppComponent {
-  title = 'ng6-proj';
- 
+export class HeaderComponent implements OnInit {
   currentUser: any = {};
   public loggedIn : any;
-  constructor(private http:Http, private router:Router){
-    
-  }
+  constructor(private router:Router) { }
 
   ngOnInit() {
     if(this.currentUser){

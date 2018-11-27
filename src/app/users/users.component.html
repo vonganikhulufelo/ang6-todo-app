@@ -1,0 +1,11 @@
+<div class="pad container">
+<table class="table">
+  <tr>
+    <th>Email</th>
+  </tr>
+  <tr *ngFor="let user of users.users">
+    <td><a routerLink="/details/{{user.id}}">{{ user.name }}</a>
+    </td>
+  </tr>
+</table>
+</div>

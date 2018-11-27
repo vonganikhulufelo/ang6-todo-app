@@ -1,0 +1,26 @@
+<p class="pad container">
+  <body class="text-center">
+    <form name="form" (ngSubmit)="f.form.valid && edittask()"  #f="ngForm" novalidate class="form-newtask">
+          <h1 class="h3 mb-3 font-weight-normal">Please add task</h1>
+        <div class="form-group" [ngClass]="{ 'has-error': f.submitted && !title.valid }">
+            <label for="ttile">Title</label>
+            <input type="text" class="form-control" name="title" [(ngModel)]="model.title" #title="ngModel" required />
+            <div *ngIf="f.submitted && !title.valid" class="help-block text-danger">Title is required</div>
+        </div>
+        <div class="form-group" [ngClass]="{ 'has-error': f.submitted && !description.valid }">
+            <label for="description">Description</label>
+            <input type="text" class="form-control" name="description" [(ngModel)]="model.description" #description="ngModel" required />
+            <div *ngIf="f.submitted && !description.valid" class="help-block text-danger">Description is required</div>
+        </div>
+        <div class="form-group" [ngClass]="{ 'has-error': f.submitted && !duedate.valid }">
+            <label for="duedate">Duedate</label>
+            <input type="date" class="form-control" name="duedate" [(ngModel)]="model.duedate" #duedate="ngModel" required />
+            <div *ngIf="f.submitted && !duedate.valid" class="help-block text-danger">Duedate is required</div>
+        </div>
+        <div class="form-group">
+            <button class="btn btn-primary">New task</button>
+            <a [routerLink]="['/register']" class="btn btn-link">Register</a>
+        </div>
+    </form>
+  </body>
+</p>
