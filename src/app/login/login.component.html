@@ -1,20 +1,38 @@
-<body class="text-center">
+<div class=" text-center body d-flex no-block justify-content-center align-items-center bg-dark">
+  <div class="row  bg-light">
+    <div class="col-md-6 col-12 col auth-box bg-dark">
+            <h2 class="form-title" style="color: white">Sign up</h2>
     <form name="form" (ngSubmit)="f.form.valid && login()" #f="ngForm" novalidate class="form-signin">
-            <img class="mb-4" src="https://getbootstrap.com/assets/brand/bootstrap-solid.svg" alt="" width="72" height="72">
-            <h1 class="h3 mb-3 font-weight-normal">Please sign in</h1>
+      <div class="form-group" *ngIf="message === 'Auth failed'"><h2 class="alert btn-danger" >{{message}} </h2></div>
         <div class="form-group" [ngClass]="{ 'has-error': f.submitted && !email.valid }">
-            <label for="email">Email</label>
-            <input type="email" class="form-control" name="email" [(ngModel)]="model.email" #email="ngModel" required />
+                <label for="email"><i class="fas fa-envelope-open"></i></label>
+            <input type="email" name="email" [(ngModel)]="model.email" #email="ngModel" required placeholder="Email"/>
             <div *ngIf="f.submitted && !email.valid" class="help-block text-danger">Email is required</div>
         </div>
         <div class="form-group" [ngClass]="{ 'has-error': f.submitted && !password.valid }">
-            <label for="password">Password</label>
-            <input type="password" class="form-control" name="password" [(ngModel)]="model.password" #password="ngModel" required />
+                <label for="password"><i class="fas fa-unlock"></i></label>
+            <input type="password" name="password" [(ngModel)]="model.password" #password="ngModel" placeholder="Password" aria-label="Password" aria-describedby="basic-addon1" required=""/>
             <div *ngIf="f.submitted && !password.valid" class="help-block text-danger">Password is required</div>
         </div>
         <div class="form-group">
-            <button class="btn btn-primary">Login</button>
-            <a [routerLink]="['/registration']" class="btn btn-link">Register</a>
+            <div class="p-t-20">
+                    <button class="btn btn-success float-right" type="submit">Login</button>
+            <a [routerLink]="['/registration']" class="btn btn-info float-left">Register</a>
+                </div>
         </div>
     </form>
-</body>
+    </div>
+    <div class="col-md-6 col-12 auth-box  bg-dark">
+        <div class="signin-image"  >
+          <h3>Task tracking</h3>
+          <div class="container">
+            Built to keep track of tasks.
+          </div>
+                
+                <a [routerLink] = "['/registration']" class="signup-image-link">Create an account</a>
+        </div>
+    </div>
+    </div>
+</div>
+
+

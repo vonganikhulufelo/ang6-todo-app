@@ -21,7 +21,7 @@ export class RegistrationComponent implements OnInit {
     this.user.register(this.model.name, this.model.email, this.model.password)
         .subscribe(
             data => {
-                this.router.navigate(['posts']);
+                this.router.navigate(['']);
             },
             error => {
                 console.log(error.error);

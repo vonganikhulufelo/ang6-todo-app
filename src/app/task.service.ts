@@ -7,10 +7,12 @@ import 'rxjs/add/operator/map'
   providedIn: 'root'
 })
 export class TaskService {
-  private apiUrl = 'https://vonganitodoapp.herokuapp.com//users/' + JSON.parse(localStorage.getItem('currentUser')).id + '/tasks';
+  private apiUrl = 'https://immense-sands-62810.herokuapp.com/tasks/';
   constructor(private http: HttpClient) { }
-  newtask(title: string, description: string, duedate: string) {
-    return this.http.post<any>(this.apiUrl, {title: title, description: description, duedate: duedate })
+  newtask(title: string, description: string) {
+    return this.http.post<any>(this.apiUrl, {title: title, description: description}, {
+      headers: {'authorization': 'Bearer '+ JSON.parse(localStorage.getItem('token'))}
+  })
         .map(task => {
             // logn successful if there's a jwt token in the response
             if (task) {
@@ -22,23 +24,45 @@ export class TaskService {
 }
 
 getTasks() {
-  return this.http.get('https://vonganitodoapp.herokuapp.com//users/' + JSON.parse(localStorage.getItem('currentUser')).id + '/tasks')
+  return this.http.get(this.apiUrl, {
+    headers: {'authorization': 'Bearer '+ JSON.parse(localStorage.getItem('token'))}
+})
 }
 
 getTaskId(taskId) {
-  return this.http.get('https://vonganitodoapp.herokuapp.com//users/' + JSON.parse(localStorage.getItem('currentUser')).id + '/tasks/' + taskId)
+  return this.http.get(this.apiUrl + taskId, {
+    headers: {'authorization': 'Bearer '+ JSON.parse(localStorage.getItem('token'))}
+})
 }
 
-edittask(title: string, description: string, duedate: string, id: string) {
-  return this.http.put<any>(this.apiUrl +'/'+ id, {title: title, description: description, duedate: duedate, id: id })
+edittask(title: string, description: string, id: string) {
+  return this.http.patch<any>(this.apiUrl + id, {title: title, description: description }, {
+    headers: {'authorization': 'Bearer '+ JSON.parse(localStorage.getItem('token'))}
+})
       .map(task => {
           // logn successful if there's a jwt token in the response
-          if (task) {
-            
-          }
-
           return task;
       });
+}
+
+taskStatus(is_complete: string, id: string) {
+  return this.http.patch<any>(this.apiUrl + id, {is_complete: is_complete}, {
+    headers: {'authorization': 'Bearer '+ JSON.parse(localStorage.getItem('token'))}
+})
+      .map(task => {
+          // logn successful if there's a jwt token in the response
+          return task;
+      });
+}
+
+deletetask(id) {
+  return this.http.delete<any>(this.apiUrl + id , {
+    headers: {'authorization': 'Bearer '+ JSON.parse(localStorage.getItem('token'))}
+})
+  .map(task => {
+      // logn successful if there's a jwt token in the response
+      return task;
+  });
 }
 
 

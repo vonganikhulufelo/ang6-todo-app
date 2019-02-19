@@ -15,7 +15,7 @@ export class NewtaskComponent implements OnInit {
   }
 
   newtask() {
-    this.task.newtask(this.model.title, this.model.description, this.model.duedate)
+    this.task.newtask(this.model.title, this.model.description)
         .subscribe(
             data => {
                 this.router.navigate(['']);

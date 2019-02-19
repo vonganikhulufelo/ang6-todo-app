@@ -1,12 +1,15 @@
 html,
 body {
   height: 100%;
-  background-color: #f5f5f5;
 }
 
 .pad{
   padding-top: 80px;
 }
 
-@import '~bootstrap/dist/css/bootstrap.min.css';
-@import '~open-iconic/font/css/open-iconic-bootstrap.css';
+h2{
+color: white;
+}
+
+
+/* @extend display-flex; */

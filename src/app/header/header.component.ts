@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, OnDestroy} from '@angular/core';
 import { Router  } from '@angular/router';
 
 @Component({
@@ -9,6 +9,7 @@ import { Router  } from '@angular/router';
 export class HeaderComponent implements OnInit {
   currentUser: any = {};
   public loggedIn : any;
+  sidebarposition: any = {};
   constructor(private router:Router) { }
 
   ngOnInit() {
@@ -16,6 +17,23 @@ export class HeaderComponent implements OnInit {
       this.currentUser = JSON.parse(localStorage.getItem('currentUser'));
       this.loggedIn = JSON.parse(localStorage.getItem('loggedin'));
       }
+
+      this.sidebarposition = false;
+
+  }
+
+  hide(){
+    if(this.sidebarposition == "false"){
+      this.sidebarposition = "true"
+      document.getElementById('idname').classList.remove('hide');
+    }else{
+      document.getElementById('idname').classList.add('hide');
+      this.sidebarposition = "false"
+    }
+  }
+
+  ngOnDestroy(){
+    this.sidebarposition = false;
   }
 
   logout() {

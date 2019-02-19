@@ -8,6 +8,7 @@ import { Router  } from '@angular/router';
 })
 export class LoginComponent implements OnInit {
   model: any = {};
+  message: string;
   constructor(private data: DataService, private router:Router) { }
 
   ngOnInit() {
@@ -24,10 +25,13 @@ export class LoginComponent implements OnInit {
                 console.log(data.user);
                 localStorage.setItem('currentUser', JSON.stringify(data.user) );
                 localStorage.setItem('loggedin', JSON.stringify('true'));
-                this.router.navigate(['tasks']);
+                localStorage.setItem('token', JSON.stringify(data.token));
+                this.router.navigateByUrl("tasks");
             },
             error => {
-                console.log(error.error);
+                console.log(error.error.error);
+                this.message = error.error.error;
+
             });
 }
 

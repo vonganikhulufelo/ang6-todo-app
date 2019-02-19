@@ -14,9 +14,7 @@ import { Router  } from '@angular/router';
 export class TaskeditComponent implements OnInit {
    
   model: any = {};
-  taskId: Object;
   task$: Object;
-  tasks: any = {};
   constructor(private router:ActivatedRoute,private task: TaskService,private route:Router) { 
     this.router.params.subscribe( params => this.task$ = params.id );
   }
@@ -26,14 +24,10 @@ export class TaskeditComponent implements OnInit {
     this.task.getTaskId(this.task$).subscribe(
       data => this.model = data
       );
-
-      this.task.getTasks().subscribe(
-        data => this.tasks = data 
-      );
   }
 
   edittask() {
-    this.task.edittask(this.model.title, this.model.description, this.model.duedate, this.model.id)
+    this.task.edittask(this.model.task.title, this.model.task.description, this.model.task.id)
         .subscribe(
             data => {
                 this.route.navigate(['']);
