@@ -1,4 +1,5 @@
 <app-header></app-header>
+
 <div class="pad container">
     <div class="container">
       <table class="table table-striped table-inverse">
@@ -15,7 +16,7 @@
               <td scope="row">{{task.title}}</td>
               <td>{{task.description}}</td>
               <td *ngIf="task.is_complete !== 'false'">
-                <select class="custom-select mr-sm-2 btn alert-{{task.is_complete}} btn" id="inlineFormCustomSelect">
+                <select class="custom-select mr-sm-2 btn badge badge-{{task.is_complete}} btn" id="inlineFormCustomSelect">
                   <option selected>Choose...</option>
                   <option value="1" (click)="[taskStatus('success', task.id)]" class=" alert btn-success">Done</option>
                   <option value="2" (click)="[taskStatus('danger', task.id)]">Cancelled</option>
@@ -27,3 +28,5 @@
           </tbody>
       </table>
     </div>
+
+    

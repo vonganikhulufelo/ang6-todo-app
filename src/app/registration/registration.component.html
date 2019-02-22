@@ -1,30 +1,50 @@
-<div class="text-center body d-flex no-block justify-content-center align-items-center bg-dark">
-        <div class="col-md-12 col auth-box bg-dark">
-                <h1 class="h3 mb-3 font-weight-normal" style="color: white">Please sign up</h1>
-    <form name="form" (ngSubmit)="f.form.valid && register()" #f="ngForm" novalidate class="form-signup">
-            
-        <div class="form-group" [ngClass]="{ 'has-error': f.submitted && !name.valid }">
-                <label for="name"><i class="fas fa-user"></i></label>
-            <input type="text"  name="name" [(ngModel)]="model.name" #name="ngModel" required  placeholder="Your Name"/>
-            <div *ngIf="f.submitted && !name.valid" class="help-block text-danger">Name is required</div>
-        </div>
-        <div class="form-group" [ngClass]="{ 'has-error': f.submitted && !email.valid }">
-                <label for="email"><i class="fas fa-envelope-open"></i></label>
-            <input type="email"  name="email" [(ngModel)]="model.email" #email="ngModel" required placeholder="Email"/>
-            <div *ngIf="f.submitted && !email.valid" class="help-block text-danger">Email is required</div>
-        </div>
-        <div class="form-group" [ngClass]="{ 'has-error': f.submitted && !password.valid }">
-                <label for="password"><i class="fas fa-unlock"></i></label>
-            <input type="password"  name="password" [(ngModel)]="model.password" #password="ngModel" required placeholder="Password"/>
-            <div *ngIf="f.submitted && !password.valid" class="help-block text-danger">Password is required</div>
-        </div>
-        <div class="form-group">
-                <div class="p-t-20">
-            <button  class="btn btn-success float-right" type="submit">New User</button>
-            <a [routerLink]="['/']" class="btn btn-info float-left">Login</a>
+
+
+<section id="home-section" class="main-banner">
+        <div class="bg-gradient">
+            <div class="container">
+                <div class="row">
+                    <div class="col-md-6 col-sm-6 col-xs-12">
+                      <!--Banner Left-Text-->
+                        <div class="banner-text">
+                            <h1 class="big-text">Task Tracking Application</h1>
+                            <p class="content">Built for registering tasks and keeping track of their status'.</p>
+                            <button class="btn orange-btn">More</button>
+                        </div>
+                    </div>
+                    <div class="col-md-5 col-sm-6 col-xs-12 pull-right">
+                      <!--Login Div-->
+                        <div class="loginDiv clearfix">
+                            
+                                <form name="form" (ngSubmit)="f.form.valid && register()" #f="ngForm" novalidate class="form-signup">
+                                        <div class="form-group">
+                                                <h2 class="h3 mb-3 font-weight-normal float-right" style="color: white">Register</h2>
+                                                </div>
+                                        <div class="form-group" [ngClass]="{ 'has-error': f.submitted && !name.valid }">
+                                                <label for="name"><i class="fas fa-user"></i></label>
+                                            <input type="text"  name="name" [(ngModel)]="model.name" #name="ngModel" required  placeholder="Your Name"/>
+                                            <div *ngIf="f.submitted && !name.valid" class="help-block text-danger">Name is required</div>
+                                        </div>
+                                        <div class="form-group" [ngClass]="{ 'has-error': f.submitted && !email.valid }">
+                                                <label for="email"><i class="fas fa-envelope-open"></i></label>
+                                            <input type="email"  name="email" [(ngModel)]="model.email" #email="ngModel" required placeholder="Email"/>
+                                            <div *ngIf="f.submitted && !email.valid" class="help-block text-danger">Email is required</div>
+                                        </div>
+                                        <div class="form-group" [ngClass]="{ 'has-error': f.submitted && !password.valid }">
+                                                <label for="password"><i class="fas fa-unlock"></i></label>
+                                            <input type="password"  name="password" [(ngModel)]="model.password" #password="ngModel" required placeholder="Password"/>
+                                            <div *ngIf="f.submitted && !password.valid" class="help-block text-danger">Password is required</div>
+                                        </div>
+                                        <div class="form-group">
+                                                <div class="p-t-20">
+                                            <button  class="btn btn-success float-right" type="submit">New User</button>
+                                            <a [routerLink]="['/']" class="btn btn-info float-left">Login</a>
+                                            </div>
+                                        </div>
+                                    </form>
+                        </div>
+                    </div>
+                </div>
             </div>
         </div>
-    </form>
-    </div>
- 
-</div>
+    </section>

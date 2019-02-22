@@ -8,6 +8,7 @@ import { RegistrationComponent } from './registration/registration.component';
 import { NewtaskComponent } from './newtask/newtask.component';
 import { TasksComponent } from './tasks/tasks.component';
 import { TaskeditComponent } from './taskedit/taskedit.component';
+import { UpadteuserComponent } from './upadteuser/upadteuser.component';
 
 const routes: Routes = [
   {
@@ -42,6 +43,10 @@ const routes: Routes = [
     path: 'tasks',
     component: TasksComponent
   },
+  {
+    path: 'profile',
+    component: UpadteuserComponent
+  }
   
 ];
 

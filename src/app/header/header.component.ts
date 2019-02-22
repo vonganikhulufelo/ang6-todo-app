@@ -26,6 +26,7 @@ export class HeaderComponent implements OnInit {
     if(this.sidebarposition == "false"){
       this.sidebarposition = "true"
       document.getElementById('idname').classList.remove('hide');
+      document.getElementById('idname').classList.add('col-2')
     }else{
       document.getElementById('idname').classList.add('hide');
       this.sidebarposition = "false"

@@ -17,6 +17,7 @@ import { TaskService } from './task.service';
 import { NewtaskComponent } from './newtask/newtask.component';
 import { TasksComponent } from './tasks/tasks.component';
 import { TaskeditComponent } from './taskedit/taskedit.component';
+import { UpadteuserComponent } from './upadteuser/upadteuser.component';
 
 @NgModule({
   declarations: [
@@ -31,6 +32,7 @@ import { TaskeditComponent } from './taskedit/taskedit.component';
     NewtaskComponent,
     TasksComponent,
     TaskeditComponent,
+    UpadteuserComponent,
    
   ],
   imports: [

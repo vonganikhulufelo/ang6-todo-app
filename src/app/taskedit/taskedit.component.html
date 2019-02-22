@@ -1,22 +1,33 @@
 <app-header></app-header>
-<p class="pad container">
-  <body class="text-center">
-    <form name="form" (ngSubmit)="f.form.valid && edittask()"  #f="ngForm" novalidate class="form-newtask">
-          <h1 class="h3 mb-3 font-weight-normal">Please update task</h1>
-        <div class="form-group" [ngClass]="{ 'has-error': f.submitted && !title.valid }">
-            <label for="ttile">Title</label>
-            <input type="text" class="form-control" name="title" [(ngModel)]="model.task.title" #title="ngModel" required />
-            <div *ngIf="f.submitted && !title.valid" class="help-block text-danger">Title is required</div>
-        </div>
-        <div class="form-group" [ngClass]="{ 'has-error': f.submitted && !description.valid }">
-            <label for="description">Description</label>
-            <input type="text" class="form-control" name="description" [(ngModel)]="model.task.description" #description="ngModel" required />
-            <div *ngIf="f.submitted && !description.valid" class="help-block text-danger">Description is required</div>
-        </div>
-        <div class="form-group">
-            <button class="btn btn-primary">New task</button>
-            <a [routerLink]="['/tasks']" class="btn btn-link">Tasks</a>
-        </div>
-    </form>
-  </body>
-</p>
+<section id="home-section" class=" pad">
+  <div class="bg-gradient">
+      <div class="container">
+          <div class="row">
+             
+              <div class="col-md-12 col-sm-12 col-xs-12 pull-right">
+                <!--Login Div-->
+                  <div class="loginDiv clearfix">
+                      
+                    <form name="form" (ngSubmit)="f.form.valid && edittask()"  #f="ngForm" novalidate class="form-signup">
+                      <h1 class="h3 mb-3 font-weight-normal">Please update task</h1>
+                    <div class="form-group" [ngClass]="{ 'has-error': f.submitted && !title.valid }">
+                        <label for="ttile">Title</label>
+                        <input type="text" class="form-control" name="title" [(ngModel)]="model.task.title" #title="ngModel" required />
+                        <div *ngIf="f.submitted && !title.valid" class="help-block text-danger">Title is required</div>
+                    </div>
+                    <div class="form-group" [ngClass]="{ 'has-error': f.submitted && !description.valid }">
+                        <label for="description">Description</label>
+                        <input type="text" class="form-control" name="description" [(ngModel)]="model.task.description" #description="ngModel" required />
+                        <div *ngIf="f.submitted && !description.valid" class="help-block text-danger">Description is required</div>
+                    </div>
+                    <div class="form-group">
+                        <button class="btn btn-primary">New task</button>
+                        <a [routerLink]="['/tasks']" class="btn btn-link">Tasks</a>
+                    </div>
+                </form>
+                  </div>
+              </div>
+          </div>
+      </div>
+  </div>
+</section> 
