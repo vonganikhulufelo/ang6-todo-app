@@ -27,7 +27,7 @@ export class UpadteuserComponent implements OnInit {
   uploadData.append('name', this.model.name);
   uploadData.append('email', this.model.email);
   uploadData.append('password', this.model.password);
-    this.http.patch('http://localhost:3000/users/'+ JSON.parse(localStorage.getItem('currentUser')).id, uploadData, {
+    this.http.patch('https://immense-sands-62810.herokuapp.com/users/'+ JSON.parse(localStorage.getItem('currentUser')).id, uploadData, {
       reportProgress: true,
       observe: 'events',
       headers: {'authorization': 'Bearer '+ JSON.parse(localStorage.getItem('token'))}
