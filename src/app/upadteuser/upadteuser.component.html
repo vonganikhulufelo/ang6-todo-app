@@ -32,7 +32,7 @@
                                     </div>
 
                                     <div class="form-group" >
-                                        <input type="file"  name="userImage" [(ngModel)]="model.userImage" #userImage="ngModel" placeholder="userImage"/>
+                                        <input type="file" (change)="onFileChanged($event)">
                                     </div>
                                         <div class="input-group form-group" [ngClass]="{ 'has-error': f.submitted && !password.valid }">
                                             <div class="input-group-prepend">

@@ -29,7 +29,7 @@
              <div class="nav-link">{{currentUser.name}}</div>
            </div> 
         <div class="nav-item">
-          <img src="{{currentUser.userImage || 'images/signin-image.jpg'}}" alt="" style="height: 40px; width: 50px" srcset="" class="rounded-circle">
+            <img src="{{('http://localhost:3000/'+currentUser.userImage) || 'images/signin-image.jpg'}}" alt="" style="height: 40px; width: 50px" srcset="" class="rounded-circle">
         </div>
        
        
