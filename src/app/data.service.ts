@@ -11,11 +11,11 @@ export class DataService {
   constructor(private http: HttpClient) { }
 
   getUsers() {
-    return this.http.get('http://localhost:3000//users')
+    return this.http.get('https://immense-sands-62810.herokuapp.com/users')
   }
 
   login(email: string, password: string) {
-    return this.http.post<any>('http://localhost:3000/users/login', { email: email, password: password }).map(user => {
+    return this.http.post<any>('https://immense-sands-62810.herokuapp.com/users/login', { email: email, password: password }).map(user => {
             // login successful if there's a jwt token in the response
             if (user) {
                 // store user details and jwt token in local storage to keep user logged in between page refreshes
@@ -27,7 +27,7 @@ export class DataService {
 }
 
 getUser(userId) {
-  return this.http.get('http://localhost:3000/users/'+userId)
+  return this.http.get('https://immense-sands-62810.herokuapp.com/users/'+userId)
 }
 
 }

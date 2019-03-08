@@ -7,7 +7,7 @@ import 'rxjs/add/operator/map'
   providedIn: 'root'
 })
 export class TaskService {
-  private apiUrl = 'http://localhost:3000/tasks/';
+  private apiUrl = 'https://immense-sands-62810.herokuapp.com/tasks/';
   constructor(private http: HttpClient) { }
   newtask(title: string, description: string) {
     return this.http.post<any>(this.apiUrl, {title: title, description: description}, {
